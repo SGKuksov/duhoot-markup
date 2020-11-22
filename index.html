@@ -1,0 +1,1831 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DuHoot</title>
+</head>
+
+<body>
+<header class="page-header">
+    <div class="page-header__inner">
+        <div class="logo page-header__logo">
+            <img src="/img/logo.svg" alt="DuHoot">
+        </div>
+
+        <nav class="main-nav page-header__nav">
+            <ul class="main-nav__list">
+                <li class="main-nav__item"><a href="#">Reality</a></li>
+                <li class="main-nav__item"><a href="#">Living</a></li>
+                <li class="main-nav__item"><a href="#">Education</a></li>
+                <li class="main-nav__item"><a href="#">Entertainment</a></li>
+                <li class="main-nav__item"><a href="#">Mobility</a></li>
+            </ul>
+        </nav>
+
+        <button class="page-header__search">
+            <svg class="page-header__search-icon icon"></svg>
+            search
+        </button>
+
+        <button class="page-header__login">
+            <svg class="page-header__login-icon icon"></svg>
+            login
+        </button>
+
+        <!-- Тут с оранжевым фоном нужно смотреть это целая кнопка или нет -->
+        <!-- Если нет, то можно добавить какой нибудь декоративный элемент цвета кнопки под них до конца экрана псевдоэлементом или градиентом -->
+        <!-- Если да, то подумать надо -->
+        <!-- Например, отказаться от контейнера, отступ слева сделать в процентах от ширины -->
+    </div>
+</header>
+
+<h1 class="visually-hidden">DuHoot travel agency</h1>
+
+<section class="search">
+    <form class="search__inner">
+        <h2 class="h1 search__title">
+            What are you looking for?
+        </h2>
+
+        <div class="search__row">
+            <div class="search__field select">
+                <select
+                        class="select__field"
+                        name="country"
+                        data-select="country"
+                >
+                    <option value="0001">Dubai</option>
+                    <option value="0002">France</option>
+                </select>
+            </div>
+
+            <div class="search__field select">
+                <select
+                        class="select__field"
+                        name="category"
+                        data-select="category"
+                >
+                    <option value="0001">Education</option>
+                    <option value="0002">Living</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="search__row">
+            <div class="search__field input-field">
+                <input
+                        class="input-field__input"
+                        type="search"
+                        name="search"
+                        id="search_1"
+                >
+                <label class="input-field__placeholder" for="search_1">
+                    Keyword, name, date, ...
+                </label>
+            </div>
+        </div>
+
+        <button class="search__btn">
+            Search
+        </button>
+    </form>
+</section>
+
+<section class="filter">
+    <div class="filter__inner">
+        <div class="filter__presets">
+            <label class="filter__radio-btn radio-btn">
+                <input
+                        class="radio-btn__input"
+                        name="preset"
+                        value="recommended"
+                        type="radio"
+                        data-radio
+                >
+
+                Recommended
+            </label>
+
+            <label class="filter__radio-btn radio-btn">
+                <input
+                        class="radio-btn__input"
+                        name="preset"
+                        value="latest"
+                        type="radio"
+                        data-radio
+                >
+
+                Latest
+            </label>
+
+            <label class="filter__radio-btn radio-btn">
+                <input
+                        class="radio-btn__input"
+                        name="preset"
+                        value="highlights"
+                        type="radio"
+                        data-radio
+                >
+
+                Highlights
+            </label>
+        </div>
+
+        <div class="filter__location">
+            <div class="filter__field select">
+                <select
+                        class="select__field"
+                        name="country"
+                        data-select="filterCountry"
+                >
+                    <option value="0001">Dubai</option>
+                    <option value="0002">France</option>
+                </select>
+            </div>
+
+            <button class="filter__map-switcher">
+                Hide map
+                <svg class="filter__map-switcher-icon icon"></svg>
+            </button>
+        </div>
+
+        <div class="filter__category">
+            <span class="filter__category-label">
+                Filter:
+            </span>
+
+            <label class="filter__category-btn checkbox-btn checkbox-btn--reality">
+                <input
+                        class="checkbox-btn__input"
+                        name="category"
+                        value="reality"
+                        type="checkbox"
+                        data-checkbox
+                >
+
+                <svg class="checkbox-btn__icon icon"></svg>
+            </label>
+
+            <label class="filter__category-btn checkbox-btn checkbox-btn--living">
+                <input
+                        class="checkbox-btn__input"
+                        name="category"
+                        value="living"
+                        type="checkbox"
+                        data-checkbox
+                >
+
+                <svg class="checkbox-btn__icon icon"></svg>
+            </label>
+
+            <label class="filter__category-btn checkbox-btn checkbox-btn--education">
+                <input
+                        class="checkbox-btn__input"
+                        name="category"
+                        value="education"
+                        type="checkbox"
+                        data-checkbox
+                >
+
+                <svg class="checkbox-btn__icon icon"></svg>
+            </label>
+
+            <label class="filter__category-btn checkbox-btn checkbox-btn--entertainment">
+                <input
+                        class="checkbox-btn__input"
+                        name="category"
+                        value="entertainment"
+                        type="checkbox"
+                        data-checkbox
+                >
+
+                <svg class="checkbox-btn__icon icon"></svg>
+            </label>
+
+            <label class="filter__category-btn checkbox-btn checkbox-btn--mobility">
+                <input
+                        class="checkbox-btn__input"
+                        name="category"
+                        value="mobility"
+                        type="checkbox"
+                        data-checkbox
+                >
+
+                <svg class="checkbox-btn__icon icon"></svg>
+            </label>
+        </div>
+    </div>
+</section>
+
+<section class="catalog" data-catalog>
+    <div class="catalog__inner">
+        <!-- Small cards -->
+        <div class="catalog__card card card--small card--living" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__price">
+                    $2,990
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--entertainment" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--mobility" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--living" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medium cards -->
+        <div class="catalog__card card card--medium card--living" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <div class="card__review review">
+                    <div class="review__author-photo">
+                        <img src="/img/person.jpg" alt="Human head">
+                    </div>
+
+                    <div class="review__content">
+                        <div class="review__rating rating rating--readonly" data-rating>
+                            <input
+                                    class="rating__input"
+                                    name="rating_1"
+                                    type="number"
+                                    readonly
+                                    value="3"
+                            >
+
+                            <div class="rating__star rating__star--fill" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star rating__star--fill" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star rating__star--fill" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <blockquote class="review__blockquote">
+                            <cite class="review__author-name">Lucy-P</cite>
+
+                            <p class="review__text">
+                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto at atque
+                                deserunt
+                                doloremque ducimus eaque fugiat laborum molestiae nemo omnis quas quasi quisquam rem
+                                sequi
+                                sit, veniam veritatis voluptas."
+                                <a class="review__more" href="#">...read more</a>
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--medium card--entertainment" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <div class="card__review review">
+                    <div class="review__author-photo">
+                        <img src="/img/person.jpg" alt="Human head">
+                    </div>
+
+                    <div class="review__content">
+                        <div class="review__rating rating rating--readonly" data-rating>
+                            <input
+                                    class="rating__input"
+                                    name="rating_1"
+                                    type="number"
+                                    readonly
+                                    value="3"
+                            >
+
+                            <div class="rating__star rating__star--fill" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star rating__star--fill" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star rating__star--fill" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <blockquote class="review__blockquote">
+                            <cite class="review__author-name">Lucy-P</cite>
+
+                            <p class="review__text">
+                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto at atque
+                                deserunt
+                                doloremque ducimus eaque fugiat laborum molestiae nemo omnis quas quasi quisquam rem
+                                sequi
+                                sit, veniam veritatis voluptas."
+                                <a class="review__more" href="#">...read more</a>
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Small cards -->
+        <div class="catalog__card card card--small card--living" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__price">
+                    $2,990
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--entertainment" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--mobility" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__price">
+                    $2,990
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--living" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__price">
+                    $2,990
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mixed row -->
+        <div class="catalog__card card card--medium card--entertainment" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <div class="card__review review">
+                    <div class="review__author-photo">
+                        <img src="/img/person.jpg" alt="Human head">
+                    </div>
+
+                    <div class="review__content">
+                        <div class="review__rating rating rating--readonly" data-rating>
+                            <input
+                                    class="rating__input"
+                                    name="rating_1"
+                                    type="number"
+                                    readonly
+                                    value="3"
+                            >
+
+                            <div class="rating__star rating__star--fill" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star rating__star--fill" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star rating__star--fill" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <blockquote class="review__blockquote">
+                            <cite class="review__author-name">Lucy-P</cite>
+
+                            <p class="review__text">
+                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto at atque
+                                deserunt
+                                doloremque ducimus eaque fugiat laborum molestiae nemo omnis quas quasi quisquam rem
+                                sequi
+                                sit, veniam veritatis voluptas."
+                                <a class="review__more" href="#">...read more</a>
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--living" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__price">
+                    $2,990
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog__card card card--small card--entertainment" data-card>
+            <div class="card__cover" style="background-image: url('/img/card-cover_1234324543.jpg')">
+                <div class="card__price">
+                    $2,990
+                </div>
+
+                <div class="card__hidden-cover">
+                    <button class="card__show-more">
+                        <svg class="card__show-more-icon icon"></svg>
+
+                        Show more
+                    </button>
+
+                    <div class="card__rating-block">
+                        <div class="card__rating rating" data-rating>
+                            <input class="rating__input" name="rating_1" type="number">
+
+                            <div class="rating__star" data-rating-value="1">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="2">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="3">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="4">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+
+                            <div class="rating__star" data-rating-value="5">
+                                <svg class="rating__star-icon icon"></svg>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card__comment-link">
+                            <svg class="card__show-more-icon icon"></svg>
+
+                            Show comments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__info">
+                <div class="card__category">
+                    <svg class="card__category-icon"></svg>
+                </div>
+
+                <h3 class="card__title">
+                    2 bedroom house for rent in Dubai
+                </h3>
+
+                <div class="card__agency">
+                    <div class="card__agency-name">
+                        vision agency
+                    </div>
+
+                    <div class="card__agency-rating rating rating--readonly" data-rating>
+                        <input
+                                class="rating__input"
+                                name="rating_1"
+                                type="number"
+                                readonly
+                                value="4"
+                        >
+
+                        <div class="rating__star rating__star--fill" data-rating-value="1">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="2">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="3">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star rating__star--fill" data-rating-value="4">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__star" data-rating-value="5">
+                            <svg class="rating__star-icon icon"></svg>
+                        </div>
+
+                        <div class="rating__counter">(365)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="catalog__more-btn" data-catalog-btn>
+        Load more
+
+        <svg class="catalog__more-btn-icon icon"></svg>
+    </button>
+</section>
+
+<section class="advantages">
+    <div class="advantages__inner">
+        <div class="advantages__heading">
+            <h2 class="advantages__title">
+                What can DuHoot offer to you?
+            </h2>
+
+            <p class="advantages__subtitle">
+                Lorem ipsum dolor sit amet, consectetur.
+            </p>
+        </div>
+
+        <div class="advantages__tabs tabs">
+            <div class="tabs__heading">
+                <button class="tabs__item tabs__item--reality tabs__item--active" data-tab-btn="reality">
+                    Reality
+                    <svg class="tabs__item-icon icon"></svg>
+                </button>
+
+                <button class="tabs__item tabs__item--living" data-tab-btn="living">
+                    Living
+                    <svg class="tabs__item-icon icon"></svg>
+                </button>
+
+                <button class="tabs__item tabs__item--education" data-tab-btn="education">
+                    Education
+                    <svg class="tabs__item-icon icon"></svg>
+                </button>
+
+                <button class="tabs__item tabs__item--entertainment" data-tab-btn="entertainment">
+                    Entertainment
+                    <svg class="tabs__item-icon icon"></svg>
+                </button>
+
+                <button class="tabs__item tabs__item--mobility" data-tab-btn="mobility">
+                    Mobility
+                    <svg class="tabs__item-icon icon"></svg>
+                </button>
+            </div>
+
+            <div class="tabs__content tabs__content--shown" data-tab-content="reality">
+                <h3 class="tabs__title">
+                    Reality
+                </h3>
+
+                <p class="tabs__article">
+                    <svg class="tabs__article-icon icon"></svg>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam animi commodi dignissimos
+                    laborum, laudantium nisi omnis reiciendis sit! Architecto eius molestiae nostrum perferendis
+                    praesentium quas repellat repellendus soluta temporibus.
+                </p>
+            </div>
+
+            <div class="tabs__content" data-tab-content="living">
+                <h3 class="tabs__title">
+                    Living
+                </h3>
+
+                <p class="tabs__article">
+                    <svg class="tabs__article-icon icon"></svg>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam animi commodi dignissimos
+                    laborum, laudantium nisi omnis reiciendis sit! Architecto eius molestiae nostrum perferendis
+                    praesentium quas repellat repellendus soluta temporibus.
+                </p>
+            </div>
+
+            <div class="tabs__content" data-tab-content="education">
+                <h3 class="tabs__title">
+                    Education
+                </h3>
+
+                <p class="tabs__article">
+                    <svg class="tabs__article-icon icon"></svg>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam animi commodi dignissimos
+                    laborum, laudantium nisi omnis reiciendis sit! Architecto eius molestiae nostrum perferendis
+                    praesentium quas repellat repellendus soluta temporibus.
+                </p>
+            </div>
+
+            <div class="tabs__content" data-tab-content="entertainment">
+                <h3 class="tabs__title">
+                    Entertainment
+                </h3>
+
+                <p class="tabs__article">
+                    <svg class="tabs__article-icon icon"></svg>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam animi commodi dignissimos
+                    laborum, laudantium nisi omnis reiciendis sit! Architecto eius molestiae nostrum perferendis
+                    praesentium quas repellat repellendus soluta temporibus.
+                </p>
+            </div>
+
+            <div class="tabs__content" data-tab-content="mobility">
+                <h3 class="tabs__title">
+                    Mobility
+                </h3>
+
+                <p class="tabs__article">
+                    <svg class="tabs__article-icon icon"></svg>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam animi commodi dignissimos
+                    laborum, laudantium nisi omnis reiciendis sit! Architecto eius molestiae nostrum perferendis
+                    praesentium quas repellat repellendus soluta temporibus.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="subscribe">
+    <div class="subscribe__inner">
+        <h2 class="subscribe__title">
+            Subscribe to our newsletter
+        </h2>
+
+        <form class="subscribe__form" data-subscribe>
+            <div class="subscribe__field input-field input-field--subscribe">
+                <input
+                        class="input-field__input"
+                        type="subscribe"
+                        name="subscribe"
+                        id="subscribe_1"
+                >
+
+                <label class="input-field__placeholder" for="subscribe_1">
+                    <svg class="input-field__placeholder-icon icon"></svg>
+
+                    your@email.com
+                </label>
+            </div>
+
+            <button class="subscribe__btn">
+                Subscribe
+            </button>
+        </form>
+    </div>
+</section>
+
+<footer class="page-footer">
+    <div class="page-footer__inner">
+        <div class="page-footer__nav">
+            <h3 class="page-footer__nav-title">Lorem ipsum</h3>
+
+            <ul class="page-footer__nav-list">
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="page-footer__nav">
+            <h3 class="page-footer__nav-title">Lorem ipsum</h3>
+
+            <ul class="page-footer__nav-list">
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+
+                <li class="page-footer__nav-item">
+                    <a href="#">libero maiores</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="page-footer__meta">
+            <h3 class="page-footer__meta-title">Follow us</h3>
+
+            <ul class="page-footer__socials">
+                <li class="page-footer__socials-item">
+                    <a href="#">
+                        <svg class="icon"></svg>
+                    </a>
+                </li>
+
+                <li class="page-footer__socials-item">
+                    <a href="#">
+                        <svg class="icon"></svg>
+                    </a>
+                </li>
+
+                <li class="page-footer__socials-item">
+                    <a href="#">
+                        <svg class="icon"></svg>
+                    </a>
+                </li>
+
+                <li class="page-footer__socials-item">
+                    <a href="#">
+                        <svg class="icon"></svg>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="page-footer__copyright">
+                Copyright &copy; All right reserved
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
